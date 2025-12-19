@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: ${ENVIRONMENT:dev}  # Profil yang aktif secara default
+
+---
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/backend-service
+    username: postgres
+    password: cacad123
+  config:
+    activate:
+      on-profile: dev
+
+---
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/staging_db
+    username: staging_user
+    password: staging_password
+  config:
+    activate:
+      on-profile: staging
+
+---
+spring:
+  datasource:
+    url: jdbc:postgresql://prod-db.example.com:5432/prod_db
+    username: prod_user
+    password: prod_password
+  config:
+    activate:
+      on-profile: prod

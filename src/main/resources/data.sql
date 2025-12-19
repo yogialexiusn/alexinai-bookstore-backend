@@ -1,0 +1,11 @@
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (1, 'Dashboards', 'cart-fill', NULL, NULL, TRUE, NULL);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (2, NULL, 'cart-fill', 'Default', '/', TRUE, NULL);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (3, NULL, 'activity-round-fill', 'Sales', '/sales', TRUE, NULL);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (4, NULL, 'growth-fill', 'Analytics', '/analytics', TRUE, NULL);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (5, 'Components', 'cart-fill', NULL, NULL, TRUE, NULL);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (6, NULL, 'layers-fill', 'Ui Elements', NULL, TRUE, 5);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (7, NULL, 'cart-fill', 'Alerts', '/components/alerts', TRUE, 6);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (8, NULL, 'cart-fill', 'Accordions', '/components/accordions', TRUE, 6);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (9, NULL, 'cart-fill', 'Utilities', NULL, TRUE, 6);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (10, NULL, 'cart-fill', 'Borders', '/components/util-border', TRUE, 9);
+INSERT INTO t_menu (id, heading, icon, text, link, active, parent_id) VALUES (11, NULL, 'cart-fill', 'Colors', '/components/util-colors', TRUE, 9);
