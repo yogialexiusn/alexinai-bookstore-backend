@@ -30,5 +30,8 @@ spring:
           connectiontimeout: 5000
           timeout: 3000
           writetimeout: 5000
+pdf:
+  storage:
+    base-path: C:/Users/yalexius/Documents/YOGI/pdf-storage
 server:
-  port: 8080
+  port: 8081

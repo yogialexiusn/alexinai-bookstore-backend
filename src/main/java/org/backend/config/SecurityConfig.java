@@ -25,10 +25,19 @@ public class SecurityConfig {
                 .and()
                 .addFilterBefore(new JwtAuthFilter(userAuthenticationProvider), BasicAuthenticationFilter.class)
                 .csrf().disable()
+                .headers(headers -> headers
+                        .frameOptions(frame -> frame.disable()) // matikan legacy
+                        .contentSecurityPolicy(csp -> csp
+                                .policyDirectives(
+                                        "frame-ancestors 'self' http://localhost:3000"
+                                )
+                        )
+                )
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers(HttpMethod.POST, "/api/users", "/api/users/login").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/pdf/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic()
         ;
