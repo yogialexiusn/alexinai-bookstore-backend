@@ -1,12 +1,9 @@
-package org.backend.response.embedded;
+package org.backend.request;
 
-import lombok.*;
+import lombok.Data;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ViewNewsResponse {
-
+public class BooksRequest {
     private String slug;
     private String title;
     private String author;
@@ -17,5 +14,4 @@ public class ViewNewsResponse {
     private int totalBookmarks;
     private int totalFavorites;
     private boolean bookmarked;
-
 }

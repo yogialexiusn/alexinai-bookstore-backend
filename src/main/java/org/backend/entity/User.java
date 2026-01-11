@@ -16,9 +16,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "t_user")
 public class User {
     @Id
-    private String username;
-    private boolean status;
-    private String name;
     private String email;
     private String password;
     private boolean verification;

@@ -1,6 +1,5 @@
 package org.backend.response.embedded;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import org.backend.constant.ResponseCode;
 import org.backend.response.BaseResponseDTO;
@@ -19,11 +18,6 @@ public class GetUserResponse extends BaseResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class DTO {
-        private String username;
-        private boolean status;
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        private String name;
-        @JsonInclude(JsonInclude.Include.NON_NULL)
         private String email;
     }
 

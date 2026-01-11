@@ -2,7 +2,6 @@ package org.backend.response;
 
 import lombok.*;
 import org.backend.constant.ResponseCode;
-import org.backend.response.embedded.GetUserAccessResponse;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
 package org.backend.controller;
 
-import org.backend.request.NewsRequest;
+import org.backend.request.BooksRequest;
 import org.backend.response.ViewNewsListResponse;
 import org.backend.response.embedded.*;
-import org.backend.service.INews;
+import org.backend.service.IBooks;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class NewsController extends BaseController{
 
-    private final INews iNews;
+    private final IBooks iBooks;
 
-    public NewsController(INews iNews) {
-        this.iNews = iNews;
+    public NewsController(IBooks iBooks) {
+        this.iBooks = iBooks;
     }
 
 
@@ -30,17 +30,17 @@ public class NewsController extends BaseController{
 //
     @GetMapping("/{id}")
     public ResponseEntity<ViewNewsIdResponse> getNewsById(@PathVariable int id) {
-        return execute(iNews.viewNewsById(id));
+        return execute(iBooks.viewBooksById(id));
     }
 
     @GetMapping
     public ResponseEntity<ViewNewsListResponse> getNewsByCategory(@RequestParam(value="category") String category) {
-        return execute(iNews.viewNewsByCategory(category));
+        return execute(iBooks.viewBooksByCategory(category));
     }
 
     @PostMapping
-    public ResponseEntity<CreateNewsResponse> addNews(@RequestBody NewsRequest request) {
-        return execute(iNews.createNews(request));
+    public ResponseEntity<CreateBooksResponse> addNews(@RequestBody BooksRequest request) {
+        return execute(iBooks.createBooks(request));
     }
 
 //    @PutMapping("/{id}")
@@ -51,7 +51,7 @@ public class NewsController extends BaseController{
 //                    existingNews.setContent(newsDto.getContent());
 //                    existingNews.setCategory(newsDto.getCategory());
 //                    existingNews.setImageUrl(newsDto.getImageUrl());
-//                    News updatedNews = newsRepository.save(existingNews);
+//                    Books updatedNews = newsRepository.save(existingNews);
 //                    return ResponseEntity.ok(new NewsDto(updatedNews.getId(), updatedNews.getTitle(), updatedNews.getContent(), updatedNews.getCategory(), updatedNews.getImageUrl()));
 //                })
 //                .orElseGet(() -> ResponseEntity.notFound().build());

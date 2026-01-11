@@ -10,9 +10,9 @@ import org.backend.response.ResponseDTO;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateNewsResponse extends BaseResponseDTO {
+public class CreateBooksResponse extends BaseResponseDTO {
 
-    private CreateNewsResponse.DTO detail;
+    private CreateBooksResponse.DTO detail;
 
     @Data
     @Builder
@@ -22,8 +22,8 @@ public class CreateNewsResponse extends BaseResponseDTO {
         private String title;
     }
 
-    public static CreateNewsResponse buildResponse(CreateNewsResponse.DTO detail, ResponseCode responseCode) {
-        CreateNewsResponse response = new CreateNewsResponse();
+    public static CreateBooksResponse buildResponse(CreateBooksResponse.DTO detail, ResponseCode responseCode) {
+        CreateBooksResponse response = new CreateBooksResponse();
         response.setResponse(ResponseDTO.toResponse(responseCode));
         response.setDetail(detail);
         return response;

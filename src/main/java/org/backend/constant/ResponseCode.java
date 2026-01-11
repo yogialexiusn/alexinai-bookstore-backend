@@ -13,15 +13,17 @@ public enum ResponseCode {
     USER_ACCESS_NOTFOUND("005", "User access not found"),
     USERNAME_NOTFOUND("006", "Username not found"),
     USERNAME_ALREADY_DEACTIVE("007", "Username already deactive"),
-    NEWS_NOTFOUND("008", "News not found"),
+    NEWS_NOTFOUND("008", "Books not found"),
     REQ_FORMAT_ERROR("009", "Format error"),
-    TOKEN_NOTFOUND("010", "Token not found"),
-    TOKEN_EXPIRED("011", "Token expired"),
-    TOKEN_ALREADY_CONFIRMED("012", "Token already confirmed"),
+    TOKEN_NOTFOUND("010", "Token verification not found"),
+    TOKEN_EXPIRED("011", "Token verification expired"),
+    TOKEN_ALREADY_CONFIRMED("012", "Token verification already confirmed"),
     USERNAME_OR_EMAIL_ISNOTNULL("013", "Username or email is must be filled"),
     USERNAME_OR_EMAIL_NOTFOUND("014", "Username or email not found"),
-    INVALID_PASSWORD("015", "Invalid password")
-
+    INVALID_PASSWORD("015", "Invalid password"),
+    LOGIN_FAILED("015", "Cannot login to your account"),
+    REFRESHTOKEN_NOTFOUND("010", "refresh token not found"),
+    REFRESHTOKEN_EXPIRED("011", "refresh token expired")
     ;
 
     private String code;

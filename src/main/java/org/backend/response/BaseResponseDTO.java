@@ -11,5 +11,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class BaseResponseDTO {
   public ResponseDTO response;
+  public boolean isLogout;
 
 }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "t_token_verification")
-public class Token {
+public class TokenVerification {
 
     @SequenceGenerator(
             name = "confirmation_token_sequence",
@@ -25,8 +25,8 @@ public class Token {
     )
     private Long id;
 
-    @Column(nullable = false)
-    private String token;
+    @Column(nullable = false, unique = true)
+    private String tokenVerification;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
@@ -39,15 +39,19 @@ public class Token {
     @ManyToOne
     @JoinColumn(
             nullable = false,
-            name = "username"
+            name = "email"
     )
     private User user;
 
-    public Token(String token,
-                 LocalDateTime createdAt,
-                 LocalDateTime expiresAt,
-                 User user) {
-        this.token = token;
+    public boolean isExpired() {
+        return LocalDateTime.now().isAfter(expiresAt);
+    }
+
+    public TokenVerification(String tokenVerification,
+                             LocalDateTime createdAt,
+                             LocalDateTime expiresAt,
+                             User user) {
+        this.tokenVerification = tokenVerification;
         this.createdAt = createdAt;
         this.expiresAt = expiresAt;
         this.user = user;

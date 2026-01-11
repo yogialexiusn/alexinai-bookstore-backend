@@ -1,11 +1,18 @@
 package org.backend.util;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.StringUtils;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class DateUtil {
+
+    @Value("${security.jwt.token.expiryMillis}")
+    private static String expiryMillis;
 
     private DateUtil() {}
 
@@ -20,4 +27,15 @@ public class DateUtil {
 
         return zonedDateTime.format(DateTimeFormatter.ofPattern(pattern));
     }
+
+    public static Date getExpiryDate() {
+        Date now = new Date();
+        return new Date(now.getTime() + expiryMillis);
+    }
+
+    public static LocalDateTime getExpiryLocalDate() {
+        return LocalDateTime.now().plus(Duration.ofMillis(Long.parseLong(expiryMillis)));
+
+    }
+
 }

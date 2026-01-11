@@ -6,8 +6,6 @@ import org.backend.constant.ResponseCode;
 import org.backend.response.BaseResponseDTO;
 import org.backend.response.ResponseDTO;
 
-import java.sql.Timestamp;
-
 @EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
@@ -21,13 +19,16 @@ public class ViewNewsIdResponse extends BaseResponseDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class DTO {
-        private int id;
+        private String slug;
         private String title;
-        private String content;
+        private String author;
+        private String coverUrl;
+        private String pdfUrl;
         private String category;
-        private String imageUrl;
-        private Timestamp createdTime;
-        private Timestamp updatedTime;
+        private int totalReads;
+        private int totalBookmarks;
+        private int totalFavorites;
+        private boolean bookmarked;
     }
 
     public static ViewNewsIdResponse buildResponse(ViewNewsIdResponse.DTO detail, ResponseCode responseCode) {

@@ -3,8 +3,13 @@ security:
   jwt:
     token:
       secret-key: my-secret-key
+      expiryMillis: 3600000
+app:
+  verify:
+    email-verification: true
+    client: http://localhost:8080/api/users/confirm?token=
+    register-expiry: 10
 spring:
-  emailVerification: false
   application:
     name: BackendServiceApplication
   config:

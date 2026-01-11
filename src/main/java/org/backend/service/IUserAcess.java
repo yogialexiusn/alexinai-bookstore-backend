@@ -1,19 +1,20 @@
 package org.backend.service;
 
-import org.backend.request.BlockUserRequest;
-import org.backend.request.CreateAccessRequest;
 import org.backend.request.CreateUserRequest;
 import org.backend.request.LoginRequest;
-import org.backend.response.GetUserAccessListResponse;
-import org.backend.response.embedded.*;
+import org.backend.request.PasswordRequest;
+import org.backend.response.BaseResponseDTO;
+import org.backend.response.embedded.GetTokenResponse;
+import org.backend.response.embedded.GetUserResponse;
+import org.backend.response.embedded.UserResponse;
 
 public interface IUserAcess {
+    GetUserResponse getUser(String email);
     UserResponse createUser(CreateUserRequest request);
-    BlockUserResponse blockUser(BlockUserRequest request);
-    CreateAccessResponse createAccess(CreateAccessRequest request);
-    GetUserResponse getUser(String username);
-    GetUserAccessListResponse getUserAccess(String username);
-    GetTokenResponse confirmToken(String tokenString);
+    UserResponse refreshToken(String tokenString);
     UserResponse login(LoginRequest request);
+    UserResponse logout(String request);
+    GetTokenResponse verify(String request);
+    GetTokenResponse password(PasswordRequest request);
 
 }
